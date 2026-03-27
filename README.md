@@ -48,6 +48,9 @@ ADMIN_PASSWORD=choose-a-password
 SESSION_SECRET=choose-a-long-random-secret
 ```
 
+Keep admin credentials server-side only. Do not expose them with `NEXT_PUBLIC_*`
+environment variables or import the admin auth module into client components.
+
 Recommended production setup on Vercel:
 
 ```env
