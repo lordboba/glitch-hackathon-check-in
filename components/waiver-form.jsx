@@ -124,7 +124,10 @@ export default function WaiverForm() {
         );
       }
 
-      window.location.assign(`/success/${payload.submissionId}`);
+      const receiptStatus = payload?.receiptEmail?.status || 'unknown';
+      window.location.assign(
+        `/success/${payload.submissionId}?receipt=${encodeURIComponent(receiptStatus)}`,
+      );
       return;
     } catch (error) {
       setSubmitError(
@@ -271,7 +274,8 @@ export default function WaiverForm() {
 
           <p className="section-copy">
             Read both documents below. On submit, the application generates a signed PDF
-            packet that combines these waivers for {EVENT.eventName}.
+            packet that combines these waivers for {EVENT.eventName} and emails a copy to
+            the signer for their records when receipt delivery is configured.
           </p>
 
           <div className="stack-md">
@@ -338,8 +342,8 @@ export default function WaiverForm() {
         <div className="submit-row">
           <div>
             <p className="submit-note">
-              Submitting will create a signed PDF packet and a matching JSON record for the
-              event administrators.
+              Submitting will create a signed PDF packet, store the JSON audit record, and
+              email the packet back to the signer when receipt delivery is enabled.
             </p>
           </div>
           <button className="button button-primary" type="submit" disabled={submitting}>

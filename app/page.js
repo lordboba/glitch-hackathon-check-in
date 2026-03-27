@@ -13,7 +13,8 @@ export default function HomePage() {
           <h1>Electronic Waiver Packet</h1>
           <p className="hero-text narrow-text">
             Review and sign the liability waiver and media release online.
-            A signed PDF packet is generated and stored for event administrators.
+            A signed PDF packet is generated, stored for event administrators, and can be
+            emailed back to the signer as a receipt.
           </p>
           <div className="button-row">
             <Link className="button button-primary" href="/sign">

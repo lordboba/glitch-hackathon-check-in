@@ -12,6 +12,7 @@ The app is designed for Vercel deployment and stores signed packets as PDFs plus
 - participant signing flow at `/sign`
 - conditional parent / guardian section that becomes required only when the participant is under 18
 - combined packet PDF generation with signatures, timestamps, and audit metadata
+- signer receipt email with the signed PDF attached
 - admin portal at `/admin`
 - private file download route for packet PDFs and JSON records
 - reusable waiver template system so more forms can be added later
@@ -23,6 +24,7 @@ The app is designed for Vercel deployment and stores signed packets as PDFs plus
 - Route Handlers for submission and admin endpoints
 - PDFKit for generating signed packet PDFs
 - Vercel Blob for persistent private file storage on Vercel
+- Resend for signer receipt delivery
 
 ## Routes
 
@@ -65,6 +67,9 @@ NEXT_PUBLIC_EVENT_DATE_RANGE_SHORT=3/27/2026 - 3/28/2026
 NEXT_PUBLIC_EVENT_LOCATION=Carnesale Commons
 NEXT_PUBLIC_EVENT_CAMPUS=Los Angeles
 NEXT_PUBLIC_EVENT_CONTACT_EMAIL=
+RESEND_API_KEY=
+WAIVER_RECEIPT_FROM_EMAIL=
+WAIVER_RECEIPT_REPLY_TO_EMAIL=
 ```
 
 ## Local development
@@ -123,7 +128,9 @@ Each completed signing creates:
 - `packets/<submissionId>.pdf` — the signed waiver packet
 - `submissions/<submissionId>.json` — the structured record and audit snapshot
 
-The admin portal lists records and links to both files.
+The admin portal lists records and links to both files. When `RESEND_API_KEY` and
+`WAIVER_RECEIPT_FROM_EMAIL` are configured, the app also emails the signed PDF back to
+the signer as a receipt and records the delivery result in the JSON submission.
 
 ## Parent / guardian behavior
 

@@ -40,7 +40,11 @@ export async function POST(request) {
       },
     });
 
-    return NextResponse.json({ ok: true, submissionId: result.submissionId });
+    return NextResponse.json({
+      ok: true,
+      submissionId: result.submissionId,
+      receiptEmail: result.receiptEmail,
+    });
   } catch (error) {
     console.error('Submission error', error);
 
