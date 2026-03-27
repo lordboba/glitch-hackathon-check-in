@@ -9,16 +9,15 @@ export default function HomePage() {
     <main className="page-shell stack-xl">
       <section className="hero-card">
         <div className="hero-copy">
-          <p className="eyebrow">Glitch Gemini Hackathon</p>
-          <h1>{EVENT.appName}</h1>
-          <p className="hero-text">
-            A DocuSign-like signing flow for your event waivers. Participants can review the
-            liability waiver and media release online, sign electronically, and create a
-            stored PDF packet for administrators.
+          <p className="eyebrow">{EVENT.eventName}</p>
+          <h1>Electronic Waiver Packet</h1>
+          <p className="hero-text narrow-text">
+            Review and sign the liability waiver and media release online.
+            A signed PDF packet is generated and stored for event administrators.
           </p>
           <div className="button-row">
             <Link className="button button-primary" href="/sign">
-              Start signing
+              Sign waiver packet
             </Link>
             <Link className="button button-secondary" href="/admin">
               Admin portal
@@ -36,40 +35,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <p className="hero-note">
-            Parent and guardian fields stay optional until a participant date of birth shows
-            the signer is under 18.
+          <p className="hero-note" style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>
+            Guardian fields appear automatically when the participant is under 18.
           </p>
         </div>
-      </section>
-
-      <section className="feature-grid">
-        <article className="card">
-          <p className="eyebrow">Participant workflow</p>
-          <h2>Simple signer experience</h2>
-          <p className="section-copy">
-            One page for participant details, guardian logic for minors, document review,
-            acknowledgements, and signature capture.
-          </p>
-        </article>
-
-        <article className="card">
-          <p className="eyebrow">Storage</p>
-          <h2>Signed packets persist as files</h2>
-          <p className="section-copy">
-            Each completed submission creates a packet PDF and a JSON record so you can keep
-            a file-based archive of signed waivers.
-          </p>
-        </article>
-
-        <article className="card">
-          <p className="eyebrow">Administration</p>
-          <h2>Password-protected admin portal</h2>
-          <p className="section-copy">
-            Review submissions, see who signed, and download the packet PDF or JSON record
-            from the admin dashboard.
-          </p>
-        </article>
       </section>
     </main>
   );
