@@ -189,7 +189,7 @@ export default function WaiverForm() {
             <div className="field-group compact-field">
               <label htmlFor="participantDob">Date of birth</label>
               <input
-                className={`input ${errors.participantDob ? 'input-error' : ''}`}
+                className={`input input-dob ${errors.participantDob ? 'input-error' : ''}`}
                 id="participantDob"
                 type="date"
                 value={form.participantDob}

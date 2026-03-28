@@ -304,6 +304,24 @@ main {
   box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
 }
 
+/* Date of birth input — mobile-friendly */
+.input-dob {
+  min-height: 48px;
+  font-size: 1rem;
+}
+
+@media (max-width: 760px) {
+  .input-dob {
+    font-size: 16px; /* Prevents iOS auto-zoom on focus */
+    min-height: 52px;
+    padding: 12px 14px;
+  }
+
+  .compact-field {
+    max-width: none; /* Full-width on mobile */
+  }
+}
+
 .input-error, .signature-canvas-error {
   border-color: #dc2626 !important;
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.06);
